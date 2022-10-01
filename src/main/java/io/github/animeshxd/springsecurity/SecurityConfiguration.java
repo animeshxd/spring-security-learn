@@ -40,7 +40,11 @@ public class SecurityConfiguration {
             .antMatchers("/").permitAll()
             .antMatchers("/admin").hasAnyRole("ADMIN")
             .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-        ).formLogin();
+            .antMatchers("/success").hasAnyRole("ADMIN", "USER")
+        ).formLogin(form -> form
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/success", true)
+        );
         return http.build();
     }
 

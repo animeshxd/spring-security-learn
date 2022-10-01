@@ -47,9 +47,12 @@ public class SecurityConfiguration {
         ).formLogin(form -> form
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/success", true)
+                .usernameParameter("user")
+                .passwordParameter("pass")
         ).rememberMe(rememberMe -> rememberMe
                 .tokenValiditySeconds(5)
                 .key("some secret key")
+                .rememberMeParameter("remember")
         ).logout(logout -> logout
                 .logoutUrl("/logout")
 //                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

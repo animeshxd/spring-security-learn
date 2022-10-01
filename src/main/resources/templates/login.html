@@ -7,13 +7,13 @@
 <body>
     <form action="/login" method="post">
         <label for="username">Username: </label>
-        <input type="text" name="username" id="username">
+        <input type="text" name="user" id="username">
         <br>
         <label for="password">Password: </label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="pass" id="password">
         <br>
         <label for="remember-me">Remember me?</label>
-        <input type="checkbox" name="remember-me" id="remember-me">
+        <input type="checkbox" name="remember" id="remember-me">
         <br>
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <input type="submit">

@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import java.util.concurrent.TimeUnit;
+
 @Configuration
 public class SecurityConfiguration {
     
@@ -44,6 +46,9 @@ public class SecurityConfiguration {
         ).formLogin(form -> form
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/success", true)
+        ).rememberMe(rememberMe -> rememberMe
+                .tokenValiditySeconds(5)
+                .key("some secret key")
         );
         return http.build();
     }

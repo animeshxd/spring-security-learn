@@ -51,7 +51,8 @@ public class SecurityConfiguration {
                 .tokenValiditySeconds(5)
                 .key("some secret key")
         ).logout(logout -> logout
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutUrl("/logout")
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)

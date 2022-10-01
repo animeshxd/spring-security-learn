@@ -15,4 +15,9 @@ public class LoginController {
     public String successLogin(){
         return "Welcome Back";
     }
+
+    @GetMapping("/logout")
+    public String logout(){
+        return "logout-form";
+    }
 }
